@@ -15,4 +15,36 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+Xcursor.theme: Breeze
+Xcursor.size:  0
 
+!*background:            #000000
+!*foreground:            #ffffff
+
+XTerm*background: #2b303b
+XTerm*foreground: #8fa1b3
+XTerm*reverseVideo: on
+!XTerm*faceName: Terminus:size=11:antialias=true
+!XTerm*faceName: InconsolataRegular:size=11:antialias=true
+XTerm*faceName: HackRegular:size=9:antialias=true
+XTerm*selectToClipboard: true
+
+!URxvt.font: xft:Source Code Pro:size=14
+URxvt.font: xft:Hack:style=Regular:size=10
+!URxvt.geometry: 80x24
+URxvt.depth: 32
+URxvt*scrollBar:                      false
+URxvt*mouseWheelScrollPage:           false
+URxvt*cursorColor:		      #ffffff
+URxvt*saveLines: 5000
+
+*fading:                15
+*fadeColor:             black
+*cursorColor:           #16A085
+*pointerColorBackground:#2B2C2B
+*pointerColorForeground:#16A085
+*.alpha: 255
+URxvt.internalBorder: 6
+URxvt*cursorBlink:: false
+URxvt.foreground: #ffffff
+URxvt.background: #000000
