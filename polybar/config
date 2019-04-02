@@ -29,13 +29,25 @@ modules-right  = ${env:POLYBAR_MODULES:coreuse temperature memory pkg network vo
 [bar/i3-bar]
 inherit = bar/master
 
-; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
-monitor =
+monitor = ${env:MONITOR:DVI-D-0}
 
-modules-left   = i3 menu
-modules-center = clock
-modules-right  = ${env:POLYBAR_MODULES:coreuse temperature memory pkg network volume}
+modules-left   = i3
+modules-center = xwindow
+modules-right  = clock
 
+
+;=====================================================
+;     i3 Bar 2
+;=====================================================
+
+[bar/i3-bar2]
+inherit = bar/master
+
+monitor = ${env:MONITOR:HDMI-0}
+
+modules-left   = i3
+modules-center = xwindow
+modules-right  = clock
 
 ;=====================================================
 ;     Bspwm Bars
@@ -46,9 +58,10 @@ inherit = bar/master
 
 ; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
 monitor = ${env:MONITOR:DVI-D-0}
-modules-left   = bspwm 
+modules-left   = bspwm xwindow
 modules-center = clock
-modules-right  = ${env:POLYBAR_MODULES:coreuse temperature memory volume}
+modules-right  = ${env:POLYBAR_MODULES:cmusradio wired-network volume}
+echo $status
 
 ;=====================================================
 ;     Bspwm Bars second monitor
@@ -60,9 +73,9 @@ inherit = bar/master
 ; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
 monitor = ${env:MONITOR:HDMI-0}
 
-modules-left   = bspwm 
+modules-left   = bspwm xwindow
 modules-center = clock
-modules-right  = 
+modules-right  = cmusradio gaming
 
 
 
