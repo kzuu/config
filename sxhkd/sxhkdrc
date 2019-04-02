@@ -3,8 +3,11 @@
 #
 
 # app shortcuts
-super + {Return,q,u,z,s}
-	{st,bspc desktop --focus ^2 && firefox,urxvt,pcmanfm,/home/tpakkila/Downloads/spotify_libraries-master/spotify-wrapper}
+super + {Return,b,n,u,z,p}
+	{st,bspc desktop --focus ^2 && firefox,qutebrowser,urxvt,pcmanfm,/home/tpakkila/Downloads/spotify_libraries-master/spotify-wrapper}
+
+super + {F1,F2}
+	{vncviewer debian:5901 &,vncviewer i5:5901 &}
 
 # program launcher
 super + d
@@ -37,20 +40,20 @@ super + f
 	bspc desktop -l next
 
 # if the current node is automatic, send it to the last manual, otherwise pull the last leaf
-super + y
+#super + y
 	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 # swap the current node and the biggest node
 super + g
-	bspc node -s biggest
+	bspc node -s biggest.local
 
 #
 # state/flags
 #
 
 # set the window state
-super + {t,space}
-	bspc node -t {tiled,floating}
+super + {t,space,l}
+	bspc node -t {tiled,floating,pseudo_tiled}
 
 # set the node flags
 super + ctrl + {l,y,z}
@@ -77,6 +80,12 @@ super + {_,shift + }c
 super + {comma,period}
 	bspc desktop -f {prev,next}
 
+# focus other monitor
+super + shift + {comma,period}
+	bspc monitor -f {prev,next}
+
+
+
 # focus the last node/desktop
 super + {grave,Tab}
 	bspc {node,desktop} -f last
@@ -95,7 +104,9 @@ super + {_,shift + }{1-9,0}
 super + w
 	bspc node -n 'last.!automatic.local'
 
-
+# swap split
+super + v
+	bspc node @/ -R 90
 
 
 
@@ -149,7 +160,7 @@ super + {j,k,i,l}
 super + {F11,F12,F10}
 	cmus-remote {-u,-n,-r}
 
-super + ctrl + {XF86AudioLowerVolume,XF86AudioRaiseVolume}
+super + {XF86AudioLowerVolume,XF86AudioRaiseVolume}
 	cmus-remote {-v -10%,-v +10%}
 
 # control spotify
@@ -158,7 +169,9 @@ super + ctrl {F10,F11,F12}
 
 
 #control volume systemwide
-super + {XF86AudioLowerVolume,XF86AudioRaiseVolume}
+XF86Audio{Lower,Raise}Volume
 	pactl set-sink-volume 1 {-10%,+10%}
-super + XF86AudioMute
+XF86AudioMute
 	pactl set-sink-mute 1 toggle
+super + ctrl + XF86AudioRaiseVolume
+	pactl set-sink-volume 1 100%
