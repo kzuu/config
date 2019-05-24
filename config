@@ -1,0 +1,94 @@
+;=====================================================
+;     File Includes
+;=====================================================
+
+[section/base]
+include-file = /home/tpakkila/.config/polybar/master.conf
+include-file = /home/tpakkila/.config/polybar/modules.conf
+
+
+;=====================================================
+;     Openbox Bars
+;=====================================================
+
+[bar/openbox-bar]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = ${env:MONITOR:DVI-D-0}
+
+modules-left   = jgmenu workspaces
+modules-center = window_switch clock
+modules-right  = ${env:POLYBAR_MODULES:coreuse temperature memory pkg network volume}
+
+
+;=====================================================
+;     i3 Bars
+;=====================================================
+
+[bar/i3-bar]
+inherit = bar/master
+
+monitor = ${env:MONITOR:DVI-D-0}
+
+modules-left   = i3
+modules-center = xwindow
+modules-right  = clock
+
+
+;=====================================================
+;     i3 Bar 2
+;=====================================================
+
+[bar/i3-bar2]
+inherit = bar/master
+
+monitor = ${env:MONITOR:HDMI-0}
+
+modules-left   = i3
+modules-center = xwindow
+modules-right  = clock
+
+;=====================================================
+;     Bspwm Bars
+;=====================================================
+
+[bar/bspwm-bar]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = ${env:MONITOR:DVI-D-0}
+modules-left   = bspwm xwindow
+modules-center = clock
+modules-right  = ${env:POLYBAR_MODULES: volume}
+
+;=====================================================
+;     Bspwm Bars second monitor
+;=====================================================
+
+[bar/bspwm-bar2]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = ${env:MONITOR:HDMI-0}
+
+modules-left   = bspwm xwindow
+modules-center = clock
+modules-right  = spotify cmusradio gaming volume
+
+
+
+;=====================================================
+;     Openbox Bars
+;=====================================================
+
+[bar/generic-bar]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor =
+
+modules-left   = workspaces menu
+modules-center = clock
+modules-right  = ${env:POLYBAR_MODULES:coreuse temperature memory pkg network volume}
+
